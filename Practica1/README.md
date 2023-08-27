@@ -58,10 +58,10 @@ Dentro del nivel 3 de la infraestructura, se procedió a asignar el rango de dir
 | Cantidad | Nombre | Marca | Modelo | Imagen |
 | -------- | ------ | ----- | ------ | ------ |
 | 2 | Switch de 8 Puertos | TP-LINK | TL-SG108 V6 | <div align="center"><img src="https://static.tp-link.com/TL-SG108_UN_5.0_01_normal_1590368970352j.jpg" width="250"/></div> |
-| 1 | Switch de 16 Puertos | TP-LINK |  TL-SG1016 (V13) | <div align="center"><img src="https://cdn.kemik.gt/2023/05/TL-SG1016-TP-LINK-1200X1200-3-1-768x768.-700x700.jpg" width="250"/></div> |
+| 1 | Switch de 16 Puertos | TP-LINK |  TL-SG1016 (V13) | <div align="center"><img src="https://www.comercialbenavides.net/data/images/prods/prod_b8d77a6e1bbde03ccbc7ebead8a3afc9.jpg" width="250"/></div> |
 | 180(m) | Cable UTP CAT5E CCA | CMPLE | AZ-305AL | <div align="center"><img src="https://www.steren.com.gt/media/catalog/product/cache/b69086f136192bea7a4d681a8eaf533d/image/207670f01/cable-utp-cat5e-cca-azul.jpg" width="250"/></div>  |
 | 36 | Conector RJ45 | Intellinet | 790055 | <img src="https://www.intelaf.com/images/productos/gran/CONRJ45-IC-55.jpg" width="250"/> |
-| 16 | Monitor | AOC | 20E1H | <div align="center"><img src="https://cdn.pacifiko.com/image/cache/catalog/p_2/MWI1MmQwZD_2-1000x1000.jpg" width="250"/></div> |
+| 16 | Monitor | AOC | 20E1H | <div align="center"><img src="https://www.imeqmo.com/web/image/product.image/2485/image?unique=c1855f7" width="250"/></div> |
 | 16 | PC |DELL|OPTIPLEX 3000 MFF i3 12100T 2.2GHZ 8GB 1TB W10P|<div align="center"><img src="https://www.intelaf.com/images/productos/gran/DL-OP300i382MFF.jpg" width="900"/></div>|
 | 16 | Teclado | XTECH | XTK-092S | <div align="center"><img src="https://www.intelaf.com/images/productos/gran/TEC-XT-XTK092E.jpg" width="900"/></div> |
 | 16 | Mouse  |XTECH | XTM-195 |  <div align="center"><img src="https://www.intelaf.com/images/productos/gran/MOU-XT-XTM195.jpg" width="900"/></div> |
