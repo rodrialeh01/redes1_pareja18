@@ -219,11 +219,11 @@ do write
 
 ![Captura](./Images/capWire.png)
 
-La captura pcapng donde se mustra el id de la VLAN lo puede encontrar en la siguiente carpeta de [`Captura`](./Captura/capturaVLAN.pcapng).
+La captura pcapng donde se mustra el id de la VLAN lo puede encontrar en la siguiente carpeta de [`Captura`](./Captura/).
 
 ## 5. Presupuesto para la realización del proyecto
 
-Este lo puede encontrar en el siguiente enlace de [`Presupuesto`](./Presupuesto/).
+Este lo puede encontrar en el siguiente enlace de [`Presupuesto`](./Presupuesto.pdf).
 
 ## 6. Resultado del proyecto
 
