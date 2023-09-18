@@ -1,0 +1,40 @@
+! Configuración del SW5 por parte del grupo 18
+! Entrar a modo configuración
+enable
+configure terminal
+
+! Colocarle nombre al host
+hostname SW5
+
+! Configurando el vtp v2 en modo servidor
+vtp version 2
+vtp mode client
+! Se agrega el dominio y la contraseña del vtp
+vtp domain pareja18
+vtp password usac
+
+! Configurando el modo troncal e0/0-1
+interface range Ethernet 0/0-1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+
+! Cambiando los puertos troncales que contienen la VLAN nativa de la que viene predeterminada en el switch a la vlan 99
+switchport trunk native vlan 99
+
+! Configurando el modo cliente SEG2 asignandole la vlan 418
+interface ethernet 0/2
+switchport mode access
+switchport access vlan 418
+
+! Configurando el modo cliente ACA1 asignandole la vlan 218
+interface ethernet 0/3
+switchport mode access
+switchport access vlan 218
+
+exit
+
+! Se configura el protocolo STP en modo rapid-pvst
+spanning-tree mode rapid-pvst
+
+! Guardando las configuraciones
+do write

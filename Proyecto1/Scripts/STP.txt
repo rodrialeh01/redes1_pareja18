@@ -1,0 +1,14 @@
+enable
+configure terminal
+spanning-tree mode rapid-pvst
+spanning-tree vlan 118,218,318,418,99,999 root primary
+do write
+
+
+enable
+configure terminal
+! Se configura el protocolo STP en modo rapid-pvst
+spanning-tree mode rapid-pvst
+do write
+
+do show spanning-tree
