@@ -1,0 +1,10 @@
+enable
+configure terminal
+hostname SW9
+interface range e0/2-3
+channel-group 2 mode desirable
+no shutdown
+exit
+exit
+copy running-config startup-config
+

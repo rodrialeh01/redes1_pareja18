@@ -1,0 +1,10 @@
+enable
+configure terminal
+hostname SW8
+interface range e0/0-1
+channel-group 1 mode passive
+no shutdown
+exit
+exit
+copy running-config startup-config
+

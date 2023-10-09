@@ -1,0 +1,10 @@
+enable
+configure terminal
+hostname SW10
+interface range e0/0-1
+channel-group 2 mode auto
+no shutdown
+exit
+exit
+copy running-config startup-config
+

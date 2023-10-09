@@ -1,0 +1,38 @@
+enable
+configure terminal
+hostname R2
+interface e0/1
+ip address 118.168.0.2 255.255.255.0
+no shutdown
+
+glbp 1 ip 118.168.0.1
+glbp 1 preempt
+glbp 1 priority 150
+glbp 1 load-balancing round-robin
+
+interface e0/0
+ip address 118.168.1.1 255.255.255.248
+no shutdown
+exit
+exit
+copy running-config startup-config
+
+
+! -----------
+! Hacia 118.168.1.0/29
+ip route 118.168.1.0 255.255.255.248 118.168.1.2
+
+! Hacia 118.168.2.0/29
+ip route 118.168.2.0 255.255.255.248 118.168.2.2
+
+! Hacia 10.0.0.0/30
+ip route 10.0.0.0 255.255.255.252 118.168.1.2
+
+! Hacia 118.178.1.0/29
+ip route 118.178.1.0 255.255.255.248 118.168.1.2
+
+! Hacia 118.178.2.0/29
+ip route 118.178.2.0 255.255.255.248 118.168.1.2
+
+! Hacia 118.178.0.0/24
+ip route 118.178.0.0 255.255.255.0 118.168.1.2

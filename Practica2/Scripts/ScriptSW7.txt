@@ -1,0 +1,10 @@
+enable
+configure terminal
+hostname SW7
+interface range e0/2-3
+channel-group 1 mode active
+no shutdown
+exit
+exit
+copy running-config startup-config
+
