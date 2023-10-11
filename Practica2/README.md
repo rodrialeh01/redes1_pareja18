@@ -36,8 +36,6 @@
 
 ## 3. Tabla de rangos de IPs disponibles en cada subred
 
-Claro, he reorganizado la tabla según tus indicaciones:
-
 | ID red       | Mascara de subred | Cantidad de IPs disponibles | Primera IP disponible | Ultima IP disponible | Dirección de broadcast |
 | ------------ | ----------------- | --------------------------- | --------------------- | -------------------- | ---------------------- |
 | 118.168.0.0  | 255.255.255.0     | 254                         | 118.168.0.1           | 118.168.0.254        | 118.168.0.255          |
