@@ -14,8 +14,6 @@ interface e0/0
 ip address 118.168.1.1 255.255.255.248
 no shutdown
 exit
-exit
-copy running-config startup-config
 
 
 ! -----------
@@ -36,3 +34,7 @@ ip route 118.178.2.0 255.255.255.248 118.168.1.2
 
 ! Hacia 118.178.0.0/24
 ip route 118.178.0.0 255.255.255.0 118.168.1.2
+
+exit
+copy running-config startup-config
+
