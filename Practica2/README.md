@@ -226,8 +226,6 @@ ip 118.168.0.4/24 118.168.0.1
 save
 ```
 
-## 5. Configuración de Switches
-
 ## 6. Resumen de comandos usados
 
 ## 7. Comandos para la verificación del correcto funcionamiento de los protocolos empleados
