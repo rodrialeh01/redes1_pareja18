@@ -226,6 +226,6 @@ ip 118.168.0.4/24 118.168.0.1
 save
 ```
 
-## 6. Resumen de comandos usados
+## 5. Resumen de comandos usados
 
-## 7. Comandos para la verificación del correcto funcionamiento de los protocolos empleados
+## 6. Comandos para la verificación del correcto funcionamiento de los protocolos empleados
