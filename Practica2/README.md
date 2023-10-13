@@ -228,4 +228,133 @@ save
 
 ## 5. Resumen de comandos usados
 
+### 5.1 Creación de ruta estática
+
+Comando general
+```cisco
+ip route <red> <mascara> <ip>
+```
+
+Donde los parámetros:
+
+- red: Es la red de destino
+- mascara: Es la mascara de subred de la red de destino
+- ip: Es la ip de la interfaz por la cual se va a enviar el paquete
+
+```cisco
+! Ejemplo aplicado en R2
+! Hacia 118.168.1.0/29
+ip route 118.168.1.0 255.255.255.248 118.168.1.2
+```
+
+### 5.2 Creacion de Port Channel
+
+- **PAGP**
+    Comando general
+    ```cisco
+    interface range <interfaz1>, <interfaz2>, ... , <interfazN>
+    channel-group <numero> mode <modo>
+    ```
+    Donde los parámetros:
+    - interfaz1, interfaz2, ... , interfazN: Son las interfaces que se van a agregar al port channel
+    - numero: Es el numero del grupo de puertos
+    - modo: Es el modo de agregación de puertos, puede ser:
+    - **active**: El puerto intenta formar un canal de agregación de puertos. El puerto canal se forma si el otro extremo está configurado en modo activo o deseable.
+    - **passive**: El puerto no intenta formar un canal de agregación de puertos. El puerto canal se forma si el otro extremo está configurado en modo activo o deseable.
+
+- **LACP**
+    Comando general
+    ```cisco
+    interface range <interfaz1>, <interfaz2>, ... , <interfazN>
+    channel-group <numero> mode <modo>
+    ```
+    Donde los parámetros:
+    - interfaz1, interfaz2, ... , interfazN: Son las interfaces que se van a agregar al port channel
+    - numero: Es el numero del grupo de puertos
+    - modo: Es el modo de agregación de puertos, puede ser:
+    - **auto**: El puerto no intenta formar un canal de agregación de puertos. El puerto canal se forma solo si el otro extremo está configurado en modo activo o deseable.
+    - **desirable**: El puerto intenta formar un canal de agregación de puertos. El puerto canal se forma si el otro extremo está configurado en modo activo, deseable o auto.
+
+### 5.3 Creación de IP virtual
+
+- **HSRP**
+    Comando general
+    ```cisco
+    standby version <version>
+    standby <numero> ip <ip>
+    standby <numero> priority <prioridad>
+    standby <numero> preempt
+    ```
+    Donde los parámetros:
+    - version: Es la versión del protocolo HSRP
+    - numero: Es el numero del grupo de puertos
+    - ip: Es la ip virtual
+    - prioridad: Es la prioridad del router
+    - preempt: Es el comando que permite que el router sea el activo
+
+- **GLBP**
+    Comando general
+    ```cisco
+    glbp <numero> ip <ip>
+    glbp <numero> preempt
+    glbp <numero> priority <prioridad>
+    glbp <numero> load-balancing <algoritmo>
+    ```
+    Donde los parámetros:
+    - numero: Es el numero del grupo de puertos
+    - ip: Es la ip virtual
+    - prioridad: Es la prioridad del router
+    - preempt: Es el comando que permite que el router sea el activo
+    - algoritmo: Es el algoritmo de balanceo de carga fue:
+  
+        - **round-robin**: El algoritmo de balanceo de carga round-robin distribuye las solicitudes de ARP entre los miembros del grupo de puertos en un orden circular.
+
+### 5.4 Configuración de VPC
+
+Comando general
+```cisco
+ip <ip> <mascara> <gateway>
+```
+
+Donde los parámetros:
+- ip: Es la ip que se le va a asignar a la VPC
+- mascara: Es la mascara de subred de la ip
+- gateway: Es la ip de la interfaz por la cual se va a enviar el paquete
+
+
 ## 6. Comandos para la verificación del correcto funcionamiento de los protocolos empleados
+
+### 6.1 Verificación de la creacion de ruta estática
+Comando generales
+```cisco
+show ip route
+show running-config | section ip route
+```
+
+### 6.2 Verificación de la creacion de Port Channel
+Comando general
+```cisco
+show etherchannel summary
+```
+
+- **PAGP**
+    ```cisco
+    show pagp neighbor
+    ```
+
+- **LACP**
+    ```cisco
+    show lacp neighbor
+    ```
+
+### 6.3 Verificación de la creacion de IP virtual
+
+- **HSRP**
+    ```cisco
+    show standby
+    show standby brief
+    ```
+- **GLBP**
+    ```cisco
+    show glbp brief
+    ```
