@@ -1,0 +1,75 @@
+! Configuración del SW9 por parte del grupo 18
+! Entrar a modo configuración
+enable
+configure terminal
+
+! Colocarle nombre al host
+hostname SW9
+
+! ------------------------------------------------------- VTP -------------------------------------------------------
+! Configurando el vtp v2 en modo servidor
+vtp version 2
+vtp mode client
+! Se agrega el dominio y la contraseña del vtp
+vtp domain pareja18
+vtp password usac
+
+! Configurando el modo troncal e0/2-3
+interface range Ethernet 0/2-3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+
+! Cambiando los puertos troncales que contienen la VLAN nativa de la que viene predeterminada en el switch a la vlan 99
+switchport trunk native vlan 99
+
+! Configurando el modo troncal e1/0-1
+interface range Ethernet 1/0-1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+
+! Cambiando los puertos troncales que contienen la VLAN nativa de la que viene predeterminada en el switch a la vlan 99
+switchport trunk native vlan 99
+
+! Configurando el modo cliente Administracion asignandole la vlan 318
+interface ethernet 0/0
+switchport mode access
+switchport access vlan 318
+
+! Configurando el modo cliente Academico asignandole la vlan 118
+interface ethernet 0/1
+switchport mode access
+switchport access vlan 118
+
+exit
+
+! Asignando todos los puertos sin usar en los switches a la VLAN (999) de Blackhole e1/2-3
+interface range Ethernet 1/2-3
+switchport mode access
+switchport access vlan 999
+
+! ------------------------------------------------------- STP -------------------------------------------------------
+
+! Se configura el protocolo STP en modo rapid-pvst
+spanning-tree mode rapid-pvst
+
+
+! ------------------------------------------------------- PAGP -------------------------------------------------------
+interface ethernet 0/3
+channel-group 1 mode auto
+no shutdown
+interface ethernet 1/0
+channel-group 1 mode auto
+no shutdown
+
+interface ethernet 1/1
+channel-group 3 mode desirable
+no shutdown
+interface ethernet 0/2
+channel-group 3 mode desirable
+no shutdown
+
+exit
+
+! Guardando las configuraciones
+! do copy running-config startup-config
+

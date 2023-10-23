@@ -1,0 +1,116 @@
+enable
+configure terminal
+
+hostname ESW
+
+! Creando y definiendo las vlans
+! Creando vlan 118 - Administracion
+vlan 118
+name Administracion
+exit
+
+! Creando vlan 218 - Seguridad
+vlan 218
+name Seguridad
+exit
+
+! Creando vlan 318 - Academico
+vlan 318
+name Academico
+exit
+
+! Creando vlan 518 - Investigacion
+vlan 518
+name Investigacion
+exit
+
+! Creando vlan 99 - Nativa
+vlan 99
+name Nativa
+exit
+
+! Creando vlan 999 - Blackhole
+vlan 999
+name Blackhole
+exit
+
+! Configurando el vtp v2 en modo servidor
+vtp version 2
+vtp mode server
+! Se agrega el dominio y la contraseña del vtp
+vtp domain pareja18
+vtp password usac
+
+! Configurando el modo troncal e0/0-3
+interface range Ethernet 0/0-3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+
+! Cambiando los puertos troncales que contienen la VLAN nativa de la que viene predeterminada en el switch a la vlan 99
+switchport trunk native vlan 99
+
+! Restringiendo las vlan que se pasarán en modo troncal
+switchport trunk allowed vlan 1,118,218,318,518,99,999,1002-1005
+
+exit
+
+! Configurando el modo troncal e1/0
+interface Ethernet 1/0
+switchport trunk encapsulation dot1q
+switchport mode trunk
+
+! Cambiando los puertos troncales que contienen la VLAN nativa de la que viene predeterminada en el switch a la vlan 99
+switchport trunk native vlan 99
+
+! Restringiendo las vlan que se pasarán en modo troncal
+switchport trunk allowed vlan 1,118,218,318,518,99,999,1002-1005
+
+exit
+
+!configurando el LACP en el puerto e0/1-2
+interface range e0/1-2
+channel-group 1 mode active
+no shutdown
+
+!configurando el LACP en el puerto e0/3
+interface Ethernet 0/3
+channel-group 3 mode passive
+no shutdown
+
+!configurando el LACP en el puerto e1/0
+interface Ethernet 1/0
+channel-group 3 mode passive
+no shutdown
+
+exit
+
+! Se configura el protocolo STP en modo rapid-pvst
+spanning-tree mode rapid-pvst
+
+! Se define el "root" y se le indica las vlans con las cual trabajará
+spanning-tree vlan 1,118,218,318,518,99,999 root primary
+
+!---------------interVLAN-----------------
+interface vlan 118
+ip address 173.118.2.65 255.255.255.248
+no shutdown
+
+interface vlan 218
+ip address 173.118.2.33 255.255.255.240
+no shutdown
+
+interface vlan 318
+ip address 173.118.2.1 255.255.255.224
+no shutdown
+
+interface vlan 518
+ip address 173.118.2.49 255.255.255.240
+no shutdown
+
+exit
+ip routing
+
+! Guardando las configuraciones
+exit
+copy running-config startup-config
+
