@@ -1,0 +1,31 @@
+enable
+configure terminal
+hostname C_1
+
+interface e0/0
+ip address 172.118.0.2 255.255.255.248
+no shutdown
+
+standby version 2
+standby 1 ip 172.118.0.1
+standby 1 priority 109
+standby 1 preempt
+
+interface s1/0
+ip address 9.0.0.1 255.255.255.252
+no shutdown
+
+exit
+
+! ----------------------- Rutas estaticas -----------------------
+! R
+! Hacia 172.118.0.0/29 
+ip route 172.118.0.0 255.255.255.248 172.118.0.4
+
+! Hacia 172.118.2.0/24
+ip route 172.118.2.0 255.255.255.0 172.118.0.4
+
+! --
+! Hacia 9.0.0.0/30
+ip route 9.0.0.0 255.255.255.252 9.0.0.2
+
