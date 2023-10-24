@@ -1,0 +1,16 @@
+enable
+configure terminal
+hostname SW
+
+! Configurando el vtp v2 en modo servidor
+vtp version 2
+vtp mode client
+! Se agrega el dominio y la contraseña del vtp
+vtp domain pareja18
+vtp password usac
+
+!pasando los puertos restantes al Blackhole
+interface range e0/3
+switchport mode access
+switchport access vlan 999
+exit

@@ -67,21 +67,10 @@ switchport trunk allowed vlan 1,118,218,318,518,99,999,1002-1005
 
 exit
 
-!configurando el LACP en el puerto e0/1-2
-interface range e0/1-2
-channel-group 1 mode active
-no shutdown
-
-!configurando el LACP en el puerto e0/3
-interface Ethernet 0/3
-channel-group 3 mode passive
-no shutdown
-
-!configurando el LACP en el puerto e1/0
-interface Ethernet 1/0
-channel-group 3 mode passive
-no shutdown
-
+!pasando los puertos restantes al Blackhole
+interface range e1/1-3
+switchport mode access
+switchport access vlan 999
 exit
 
 ! Se configura el protocolo STP en modo rapid-pvst
@@ -109,6 +98,33 @@ no shutdown
 
 exit
 ip routing
+
+!configurando el LACP en el puerto e0/1-2
+interface range e0/1-2
+channel-group 1 mode active
+no shutdown
+
+!configurando el LACP en el puerto e0/3
+interface Ethernet 0/3
+channel-group 3 mode passive
+no shutdown
+
+!configurando el LACP en el puerto e1/0
+interface Ethernet 1/0
+channel-group 3 mode passive
+no shutdown
+
+exit
+
+! Agregando la ip al puerto 0/0
+interface Ethernet 0/0
+no switchport
+ip address 173.118.0.4 255.255.255.248
+no shutdown
+exit
+
+!----------- RUTAS ESTATICAS -------------
+! Hacia 
 
 ! Guardando las configuraciones
 exit

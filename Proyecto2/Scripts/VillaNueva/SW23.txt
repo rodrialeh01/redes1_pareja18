@@ -30,6 +30,12 @@ switchport access vlan 318
 
 exit
 
+!pasando los puertos restantes al Blackhole
+interface range e1/2-3
+switchport mode access
+switchport access vlan 999
+exit
+
 !configurando el LACP en el puerto e0/2-3
 interface range e0/2-3
 channel-group 2 mode active

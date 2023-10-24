@@ -1,0 +1,18 @@
+enable
+configure terminal
+hostname VN_1
+
+interface ethernet 0/0
+ip address 173.118.0.2 255.255.255.248
+no shutdown
+
+glbp 7 ip 173.118.0.1
+glbp 7 preempt
+glbp 7 priority 150
+glbp 7 load-balancing round-robin
+
+exit
+exit
+
+copy running-config startup-config
+
