@@ -1,0 +1,51 @@
+enable
+configure terminal
+
+hostname Mixco
+
+interface s1/0
+ip address 10.0.0.6 255.255.255.252
+no shutdown
+
+interface s1/1
+ip address 10.0.0.9 255.255.255.252
+no shutdown
+
+exit
+
+!-------------- RUTAS ESTATICAS ------------------
+!Hacia Villa Nueva
+!Hacia 10.0.0.0/30
+ip route 10.0.0.8 255.255.255.252 10.0.0.10
+
+!Hacia 11.0.0.0/30
+ip route 11.0.0.0 255.255.255.252 10.0.0.10
+
+!Hacia 11.0.0.4/30
+ip route 11.0.0.4 255.255.255.252 10.0.0.10
+
+!Hacia 173.118.0.0/29
+ip route 173.118.0.0 255.255.255.248 10.0.0.10
+
+!Hacia 173.118.2.0/24
+ip route 173.118.2.0 255.255.255.0 10.0.0.10
+
+!Hacia Central
+! Hacia 10.0.0.4/30
+ip route 10.0.0.4 255.255.255.252 10.0.0.5
+
+! Hacia 9.0.0.0/30
+ip route 9.0.0.0 255.255.255.252 10.0.0.5
+
+! Hacia 9.0.0.4/30
+ip route 9.0.0.4 255.255.255.252 10.0.0.5
+
+! Hacia 172.118.0.0/29
+ip route 172.118.0.0 255.255.255.248 10.0.0.5
+
+! Hacia 172.118.2.0/24
+ip route 172.118.2.0 255.255.255.0 10.0.0.5
+
+exit
+copy running-config startup-config
+
