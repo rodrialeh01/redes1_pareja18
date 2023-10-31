@@ -9,7 +9,7 @@
 
 ## 1. Topología de red
 
-![topologia](./Images/topologia.png)
+![topologia](./images/topologia.png)
 
 ## 2. Tabla de rangos de IPs utilizadas
 
@@ -99,7 +99,14 @@
 
 ### 4.1. VLSM de Central
 
+1. Obtenemos el id de la red.
 
+```
+En la central el id de la red es 172.118.2.0/25
+```
+
+2. Obtenemos la cantidad de hosts por cada subred.
+3. 
 
 ### 4.2. FLSM de Core
 
@@ -138,26 +145,26 @@ En el core el id de la red es 10.0.0.0/28
 ## Central:
 
 ### Red 1:
-![central](./Images/central.png)
+![central](./images/central.png)
 
 ### Red 2:
-![central](./Images/central1.png)
+![central](./images/central1.png)
 
 ### Red 3:
-![central](./Images/central2.png)
+![central](./images/central2.png)
 
 ## Core:
-![core](./Images/core.png)
+![core](./images/core.png)
 
 ## Villa Nueva:
 
 ### Red 3:
-![villa](./Images/vn1.png)
+![villa](./images/vn1.png)
 
 ### Red 2:
 
-![villa](./Images/vn2.png)
+![villa](./images/vn2.png)
 
 ### Red 1:
 
-![villa](./Images/vn.png)
+![villa](./images/vn.png)
