@@ -215,3 +215,7 @@ En el core el id de la red es 10.0.0.0/28
 ### Red 1:
 
 ![villa](./images/vn.png)
+
+## 6. Configuración de dispositivos
+
+Cualquier configuración de dispositivos se encuentra en la carpeta [Scripts](./Scripts/)
